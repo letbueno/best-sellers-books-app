@@ -1,5 +1,12 @@
-import { Card, Image, Text, Float, Badge, Link } from "@chakra-ui/react";
-import { Button } from "../ui/button";
+import {
+  Card,
+  Image,
+  Text,
+  Float,
+  Badge,
+  Link,
+  Button,
+} from "@chakra-ui/react";
 
 type Props = {
   title: string;
@@ -35,8 +42,8 @@ export function BookCard({
       <Image
         src={image}
         alt={alt}
-        maxH="10rem"
-        maxWidth="8rem"
+        maxH="160px"
+        maxWidth="128px"
         objectFit="cover"
         mt={4}
         alignSelf={{ base: "center" }}

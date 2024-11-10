@@ -8,7 +8,6 @@ function Home(): JSX.Element {
   const listRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
-    console.log("scrollToTop");
     if (listRef.current) {
       listRef.current.scrollIntoView({ behavior: "smooth" });
     }

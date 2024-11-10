@@ -1,23 +1,30 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Text, useBreakpointValue } from "@chakra-ui/react";
 
 import { BookCard } from "../BookCard";
 import { useBooksContext } from "../../contexts/booksContext";
 import { useEffect, useState } from "react";
-
-export const LISTS_PER_PAGE = 3;
+import Carousel from "../Carousel";
 
 export function BookCardList(): JSX.Element {
   const { books } = useBooksContext();
+  const listsPerPage =
+    useBreakpointValue({
+      base: 2,
+      sm: 2,
+      md: 2,
+      lg: 3,
+      xl: 3,
+    }) ?? 3;
   const [displayedBooks, setDisplayedBooks] = useState(
-    books?.slice(0, LISTS_PER_PAGE)
+    books?.slice(0, listsPerPage)
   );
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (books) {
-      setDisplayedBooks(books.slice(0, page * LISTS_PER_PAGE));
+      setDisplayedBooks(books.slice(0, page * listsPerPage));
     }
-  }, [books, page]);
+  }, [books, page, listsPerPage]);
 
   const handleShowMore = () => {
     setPage((prevPage) => prevPage + 1);
@@ -37,22 +44,24 @@ export function BookCardList(): JSX.Element {
             flexDirection="row"
             mt={4}
           >
-            {list.books.slice(0, 5).map((book: any) => (
-              <BookCard
-                key={book.primary_isbn10}
-                title={book.title}
-                description={book.description}
-                image={book.book_image}
-                alt={`Cover of the book ${book.title}`}
-                author={book.author}
-                rank={book.rank}
-                link={book.amazon_product_url}
-              />
-            ))}
+            <Carousel
+              items={list.books.slice(0, 5).map((book: any) => (
+                <BookCard
+                  key={book.primary_isbn10}
+                  title={book.title}
+                  description={book.description}
+                  image={book.book_image}
+                  alt={`Cover of the book ${book.title}`}
+                  author={book.author}
+                  rank={book.rank}
+                  link={book.amazon_product_url}
+                />
+              ))}
+            />
           </Box>
         </Box>
       ))}
-      {page * LISTS_PER_PAGE < books?.length && (
+      {page * listsPerPage < books?.length && (
         <Button
           onClick={handleShowMore}
           mb={4}
