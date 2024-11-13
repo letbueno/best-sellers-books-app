@@ -27,7 +27,7 @@ function BooksListDetails(): JSX.Element {
 
   useEffect(() => {
     const booksList = booksLists?.find(
-      (list: BooksList) => list.list_id === Number(id),
+      (list: BooksList) => list.listId === Number(id),
     );
 
     if (booksList) {
@@ -47,9 +47,9 @@ function BooksListDetails(): JSX.Element {
         <Text
           textStyle="2xl"
           fontWeight="bolder"
-          key={currentBooksList.list_name}
+          key={currentBooksList.listName}
         >
-          {currentBooksList?.list_name}
+          {currentBooksList?.listName}
         </Text>
       </Box>
       <Separator my={4} />
@@ -62,28 +62,28 @@ function BooksListDetails(): JSX.Element {
         mb={8}
       >
         {currentBooksList?.books?.map((book: Book) => (
-          <div key={book.primary_isbn10}>
+          <div key={book.primaryIsbn10}>
             {isMobile ? (
               <BookCard
-                key={book.primary_isbn10}
+                key={book.primaryIsbn10}
                 title={book.title}
                 description={book.description}
-                image={book.book_image}
+                image={book.bookImage}
                 alt={`Cover of the book ${book.title}`}
                 author={book.author}
                 rank={book.rank}
-                link={book.amazon_product_url}
+                link={book.amazonProductUrl}
               />
             ) : (
               <BookCardHorizontal
-                key={book.primary_isbn10}
+                key={book.primaryIsbn10}
                 title={book.title}
                 description={book.description}
-                image={book.book_image}
+                image={book.bookImage}
                 alt={`Cover of the book ${book.title}`}
                 author={book.author}
                 rank={book.rank}
-                link={book.amazon_product_url}
+                link={book.amazonProductUrl}
               />
             )}
           </div>

@@ -1,8 +1,8 @@
 import { Book } from "./Book";
 
 export interface BooksList {
-  list_id: number;
-  list_name: string;
+  listId: number;
+  listName: string;
   books: Book[];
   updated?: string;
 }

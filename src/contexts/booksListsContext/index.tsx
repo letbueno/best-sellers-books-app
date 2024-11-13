@@ -33,6 +33,8 @@ function BooksListsProvider({ children }: { children: React.ReactNode }) {
     JSON.parse(localStorage.getItem(WEEKLY_BOOKS_LIST) || "null"),
   );
 
+  console.log(booksLists);
+
   const [weeklyBooksLists, setWeeklyBooksLists] = useState<BooksList[]>();
   const [monthlyBooksLists, setMonthlyBooksLists] = useState<BooksList[]>();
 
@@ -63,6 +65,7 @@ function BooksListsProvider({ children }: { children: React.ReactNode }) {
       try {
         setLoading(true);
         const { data } = await bestSellersBooksApi.getbestSellersBooks();
+        console.log("data", data);
         const expirationDate = Date.now() + ONE_WEEK_IN_MS;
 
         setBooksList(data.results.lists);
@@ -74,7 +77,7 @@ function BooksListsProvider({ children }: { children: React.ReactNode }) {
           WEEKLY_BOOKS_EXPIRATION,
           expirationDate.toString(),
         );
-      } catch (error) {
+      } catch {
         navigate("/*");
         setError(true);
       } finally {

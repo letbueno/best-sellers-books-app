@@ -2,8 +2,8 @@ import { createMockBook } from "./bookFactory";
 import { Book } from "../../types/Book";
 
 type BookList = {
-  list_id: number;
-  list_name: string;
+  listId: number;
+  listName: string;
   books: Book[];
 };
 
@@ -12,11 +12,11 @@ export const createMockBookList = (
   name: string,
   bookCount = 6,
 ): BookList => ({
-  list_id: id,
-  list_name: name,
+  listId: id,
+  listName: name,
   books: Array.from({ length: bookCount }, (_, index) =>
     createMockBook({
-      primary_isbn10: (1111111111 + index).toString(),
+      primaryIsbn10: (1111111111 + index).toString(),
       title: `Book ${(id - 1) * bookCount + index + 1}`,
       description: `Description ${(id - 1) * bookCount + index + 1}`,
       author: `Author ${(id - 1) * bookCount + index + 1}`,

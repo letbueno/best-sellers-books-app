@@ -45,11 +45,11 @@ export function BooksCardsList(): JSX.Element {
   return (
     <Box display="flex" flexDirection="column">
       {displayedBooksLists?.map((list: BooksList) => (
-        <Box key={list.list_id} mb={8}>
-          <Link to={`/list/${list.list_id}`}>
+        <Box key={list.listId} mb={8}>
+          <Link to={`/list/${list.listId}`}>
             <Box display="flex" flexDirection="row" alignItems="center" gap={2}>
               <TextLink as="p" textStyle="lg" fontWeight="bolder">
-                {list.list_name}
+                {list.listName}
               </TextLink>
               <Text>
                 <RiArrowRightLine size={18} />
@@ -67,14 +67,14 @@ export function BooksCardsList(): JSX.Element {
             <Carousel
               items={list.books.slice(0, 5).map((book: Book) => (
                 <BookCard
-                  key={book.primary_isbn10}
+                  key={book.primaryIsbn10}
                   title={book.title}
                   description={book.description}
-                  image={book.book_image}
+                  image={book.bookImage}
                   alt={`Cover of the book ${book.title}`}
                   author={book.author}
                   rank={book.rank}
-                  link={book.amazon_product_url}
+                  link={book.amazonProductUrl}
                 />
               ))}
             />

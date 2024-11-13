@@ -27,9 +27,9 @@ function FilterBooksLists(): JSX.Element {
         </Text>
         <SimpleGrid columns={[1, null, 2, 3]}>
           {weeklyBooksLists?.map((list: BooksList) => (
-            <Link to={`/list/${list.list_id}`} key={list.list_id}>
+            <Link to={`/list/${list.listId}`} key={list.listId}>
               <TextLink as="p" textStyle="sm" color="gray.600" mb={2}>
-                {list.list_name}
+                {list.listName}
               </TextLink>
             </Link>
           ))}
@@ -40,9 +40,9 @@ function FilterBooksLists(): JSX.Element {
         </Text>
         <SimpleGrid columns={[1, null, 2, 3]}>
           {monthlyBooksLists?.map((list: BooksList) => (
-            <Link to={`/list/${list.list_id}`} key={list.list_id}>
+            <Link to={`/list/${list.listId}`} key={list.listId}>
               <TextLink as="p" textStyle="sm" color="gray.600" mb={2}>
-                {list.list_name}
+                {list.listName}
               </TextLink>
             </Link>
           ))}

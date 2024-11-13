@@ -34,12 +34,12 @@ describe("FilterBooksLists", () => {
     expect(screen.getByText("Monthly Best Sellers Lists")).toBeInTheDocument();
 
     mockWeeklyBooks.forEach((book) => {
-      const weeklyBookLink = screen.getByText(book.list_name);
+      const weeklyBookLink = screen.getByText(book.listName);
       expect(weeklyBookLink).toBeInTheDocument();
     });
 
     mockMonthlyBooks.forEach((book) => {
-      const monthlyBookLink = screen.getByText(book.list_name);
+      const monthlyBookLink = screen.getByText(book.listName);
       expect(monthlyBookLink).toBeInTheDocument();
     });
   });
