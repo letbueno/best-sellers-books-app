@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Text, Box, useBreakpointValue } from "@chakra-ui/react";
+import { Text, Box, useBreakpointValue, Separator } from "@chakra-ui/react";
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useBooksListsContext } from "../../contexts/booksListsContext";
@@ -50,12 +50,8 @@ function BooksListDetails(): JSX.Element {
         >
           {currentBooksList?.list_name}
         </Text>
-        <Text textStyle="md" color="gray.600">
-          A Top 5 ranked lists of books sold in the United States, sorted by
-          format and genre.
-        </Text>
       </Box>
-
+      <Separator my={4} />
       <Box
         overflowX="auto"
         gap="6"

@@ -16,7 +16,7 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
-describe("ListBooksDetails Page", () => {
+describe("BooksListDetails Page", () => {
   it("renders list details and book cards", () => {
     render(
       <BooksListsContext.Provider
@@ -25,15 +25,10 @@ describe("ListBooksDetails Page", () => {
         }}
       >
         <ListBooksDetails />
-      </BooksListsContext.Provider>
+      </BooksListsContext.Provider>,
     );
 
     expect(screen.getByText("Best Sellers 1")).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "A Top 5 ranked lists of books sold in the United States, sorted by format and genre."
-      )
-    ).toBeInTheDocument();
 
     expect(screen.getByText("Book 1")).toBeInTheDocument();
     expect(screen.getByText("Description 1")).toBeInTheDocument();

@@ -14,12 +14,12 @@ describe("Home component", () => {
     render(<Home />);
 
     expect(
-      screen.getByText("The New York Times Best Sellers")
+      screen.getByText("Best Sellers Books By The New York Times"),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        "A Top 5 ranked lists of books sold in the United States, sorted by format and genre."
-      )
+        "Ranked lists of books sold in the United States, sorted by format and genre.",
+      ),
     ).toBeInTheDocument();
 
     expect(screen.getByTestId("books-cards-list")).toBeInTheDocument();
