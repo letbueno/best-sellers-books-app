@@ -14,10 +14,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "moduleResolution": "Bundler"
   },
   "include": ["src"]
 }

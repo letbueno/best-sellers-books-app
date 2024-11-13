@@ -1,42 +1,60 @@
-import { Box, Button, Text, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Text,
+  useBreakpointValue,
+  Link as TextLink,
+} from "@chakra-ui/react";
 
 import { BookCard } from "../BookCard";
-import { useBooksContext } from "../../contexts/booksContext";
+import { useListsBooksContext } from "../../contexts/listsBooksContext";
 import { useEffect, useState } from "react";
 import Carousel from "../Carousel";
 
+import { RiArrowRightLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
+
 export function BookCardList(): JSX.Element {
-  const { books } = useBooksContext();
+  const { listsBooks } = useListsBooksContext();
+
   const listsPerPage =
     useBreakpointValue({
-      base: 2,
+      base: 1,
       sm: 2,
       md: 2,
       lg: 3,
       xl: 3,
     }) ?? 3;
-  const [displayedBooks, setDisplayedBooks] = useState(
-    books?.slice(0, listsPerPage)
+  const [displayedListsBooks, setDisplayedListsBooks] = useState(
+    listsBooks?.slice(0, listsPerPage)
   );
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    if (books) {
-      setDisplayedBooks(books.slice(0, page * listsPerPage));
+    if (listsBooks) {
+      setDisplayedListsBooks(listsBooks.slice(0, page * listsPerPage));
     }
-  }, [books, page, listsPerPage]);
+  }, [listsBooks, page, listsPerPage]);
 
   const handleShowMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
   return (
-    <Box mt={8} mb={8} display="flex" flexDirection="column">
-      {displayedBooks?.map((list: any) => (
+    <Box mt={8} display="flex" flexDirection="column">
+      {displayedListsBooks?.map((list: any) => (
         <Box key={list.list_id} mb={8}>
-          <Text textStyle="lg" fontWeight="bolder">
-            {list.list_name}
-          </Text>
+          <Link to={`/list/${list.list_id}`}>
+            <Box display="flex" flexDirection="row" alignItems="center" gap={2}>
+              <TextLink as="p" textStyle="lg" fontWeight="bolder">
+                {list.list_name}
+              </TextLink>
+              <Text>
+                <RiArrowRightLine size={18} />
+              </Text>
+            </Box>
+          </Link>
+
           <Box
             overflowX="auto"
             gap="6"
@@ -61,7 +79,7 @@ export function BookCardList(): JSX.Element {
           </Box>
         </Box>
       ))}
-      {page * listsPerPage < books?.length && (
+      {page * listsPerPage < listsBooks?.length && (
         <Button
           onClick={handleShowMore}
           mb={4}

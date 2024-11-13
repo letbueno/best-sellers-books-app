@@ -1,21 +1,20 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Circle, Container, Float, Separator } from "@chakra-ui/react";
 import FilterListsBooks from "../FilterListsBooks";
 import { RiArrowUpLine } from "react-icons/ri";
+import { useListsBooksContext } from "../../contexts/listsBooksContext";
+import LoadingWrapper from "../../pages/Loading";
 
 function MainLayout({ children }: { children: React.ReactNode }): JSX.Element {
-  const listRef = useRef<HTMLDivElement>(null);
-
   const scrollToTop = () => {
-    if (listRef.current) {
-      listRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const { loading } = useListsBooksContext();
 
   return (
     <Container
       maxWidth={["8xl"]}
-      ref={listRef}
       flexDirection="column"
       display="flex"
       alignItems="center"
@@ -23,23 +22,31 @@ function MainLayout({ children }: { children: React.ReactNode }): JSX.Element {
       mt={8}
     >
       <Container maxWidth={["7xl"]}>
-        {children}
-        <Separator my={4} />
-        <FilterListsBooks />
+        {!loading ? (
+          <>
+            {children}
+            <Separator my={4} />
+            <FilterListsBooks />
+
+            <Float offset={[16, null, 20]} placement="bottom-end">
+              <Circle
+                as="button"
+                size={50}
+                bg="black"
+                color="white"
+                onClick={scrollToTop}
+                aria-label="Scroll to top"
+                _hover={{ bg: "gray.700" }}
+                cursor="pointer"
+              >
+                <RiArrowUpLine />
+              </Circle>
+            </Float>
+          </>
+        ) : (
+          <LoadingWrapper />
+        )}
       </Container>
-      <Float offset={[16, null, 20]} placement="bottom-end">
-        <Circle
-          as="button"
-          size={50}
-          bg="black"
-          color="white"
-          onClick={scrollToTop}
-          aria-label="Scroll to top"
-          _hover={{ bg: "gray.700" }}
-        >
-          <RiArrowUpLine />
-        </Circle>
-      </Float>
     </Container>
   );
 }
