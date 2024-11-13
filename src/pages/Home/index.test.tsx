@@ -1,11 +1,12 @@
+import "@testing-library/jest-dom";
+
 import { screen } from "@testing-library/react";
 import Home from ".";
-import "@testing-library/jest-dom";
 import { vi } from "vitest";
 import { render } from "../../utils/testUtils";
 
-vi.mock("../../components/BookCardList", () => ({
-  BookCardList: () => <div data-testid="book-card-list" />,
+vi.mock("../../components/BooksCardsList", () => ({
+  BooksCardsList: () => <div data-testid="books-cards-list" />,
 }));
 
 describe("Home component", () => {
@@ -21,6 +22,6 @@ describe("Home component", () => {
       )
     ).toBeInTheDocument();
 
-    expect(screen.getByTestId("book-card-list")).toBeInTheDocument();
+    expect(screen.getByTestId("books-cards-list")).toBeInTheDocument();
   });
 });

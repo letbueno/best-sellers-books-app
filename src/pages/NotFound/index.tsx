@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
 
-const NotFound: React.FC = () => {
+function NotFound(): JSX.Element {
   return (
     <Box textAlign="center" mt={6}>
       <Text fontSize="2xl" fontWeight="bold" color="red.500">
@@ -12,6 +12,6 @@ const NotFound: React.FC = () => {
       </Text>
     </Box>
   );
-};
+}
 
 export default NotFound;

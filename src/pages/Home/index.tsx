@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BookCardList } from "../../components/BookCardList";
+import { BooksCardsList } from "../../components/BooksCardsList";
 import { Text, Box } from "@chakra-ui/react";
 import MainLayout from "../../components/MainLayout";
 
@@ -16,7 +16,7 @@ function Home(): JSX.Element {
           format and genre.
         </Text>
       </Box>
-      <BookCardList />
+      <BooksCardsList />
     </MainLayout>
   );
 }

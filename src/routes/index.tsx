@@ -5,7 +5,7 @@ import NotFound from "../pages/NotFound";
 import ScrollToTop from "../utils/scrollTop";
 import LoadingWrapper from "../pages/Loading";
 import Home from "../pages/Home";
-import ListBooksDetails from "../pages/ListBooksDetails";
+import BooksListDetails from "../pages/BooksListDetails";
 
 const AppRoutes = () => {
   return (
@@ -14,7 +14,7 @@ const AppRoutes = () => {
       <Suspense fallback={<LoadingWrapper />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/list/:id" element={<ListBooksDetails />} />
+          <Route path="/list/:id" element={<BooksListDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

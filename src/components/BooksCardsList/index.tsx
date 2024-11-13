@@ -7,15 +7,17 @@ import {
 } from "@chakra-ui/react";
 
 import { BookCard } from "../BookCard";
-import { useListsBooksContext } from "../../contexts/listsBooksContext";
+import { useBooksListsContext } from "../../contexts/booksListsContext";
 import { useEffect, useState } from "react";
 import Carousel from "../Carousel";
 
 import { RiArrowRightLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { Book } from "../../types/Book";
+import { BooksList } from "../../types/BooksList";
 
-export function BookCardList(): JSX.Element {
-  const { listsBooks } = useListsBooksContext();
+export function BooksCardsList(): JSX.Element {
+  const { booksLists } = useBooksListsContext();
 
   const listsPerPage =
     useBreakpointValue({
@@ -25,16 +27,16 @@ export function BookCardList(): JSX.Element {
       lg: 3,
       xl: 3,
     }) ?? 3;
-  const [displayedListsBooks, setDisplayedListsBooks] = useState(
-    listsBooks?.slice(0, listsPerPage)
+  const [displayedBooksLists, setDisplayedBooksLists] = useState(
+    booksLists?.slice(0, listsPerPage),
   );
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    if (listsBooks) {
-      setDisplayedListsBooks(listsBooks.slice(0, page * listsPerPage));
+    if (booksLists) {
+      setDisplayedBooksLists(booksLists.slice(0, page * listsPerPage));
     }
-  }, [listsBooks, page, listsPerPage]);
+  }, [booksLists, page, listsPerPage]);
 
   const handleShowMore = () => {
     setPage((prevPage) => prevPage + 1);
@@ -42,7 +44,7 @@ export function BookCardList(): JSX.Element {
 
   return (
     <Box mt={8} display="flex" flexDirection="column">
-      {displayedListsBooks?.map((list: any) => (
+      {displayedBooksLists?.map((list: BooksList) => (
         <Box key={list.list_id} mb={8}>
           <Link to={`/list/${list.list_id}`}>
             <Box display="flex" flexDirection="row" alignItems="center" gap={2}>
@@ -63,7 +65,7 @@ export function BookCardList(): JSX.Element {
             mt={4}
           >
             <Carousel
-              items={list.books.slice(0, 5).map((book: any) => (
+              items={list.books.slice(0, 5).map((book: Book) => (
                 <BookCard
                   key={book.primary_isbn10}
                   title={book.title}
@@ -79,7 +81,7 @@ export function BookCardList(): JSX.Element {
           </Box>
         </Box>
       ))}
-      {page * listsPerPage < listsBooks?.length && (
+      {page * listsPerPage < booksLists?.length && (
         <Button
           onClick={handleShowMore}
           mb={4}

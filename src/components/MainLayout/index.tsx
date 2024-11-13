@@ -1,8 +1,8 @@
 import React from "react";
 import { Circle, Container, Float, Separator } from "@chakra-ui/react";
-import FilterListsBooks from "../FilterListsBooks";
+import FilterBooksLists from "../FilterBooksLists";
 import { RiArrowUpLine } from "react-icons/ri";
-import { useListsBooksContext } from "../../contexts/listsBooksContext";
+import { useBooksListsContext } from "../../contexts/booksListsContext";
 import LoadingWrapper from "../../pages/Loading";
 
 function MainLayout({ children }: { children: React.ReactNode }): JSX.Element {
@@ -10,7 +10,7 @@ function MainLayout({ children }: { children: React.ReactNode }): JSX.Element {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const { loading } = useListsBooksContext();
+  const { loading } = useBooksListsContext();
 
   return (
     <Container
@@ -26,7 +26,7 @@ function MainLayout({ children }: { children: React.ReactNode }): JSX.Element {
           <>
             {children}
             <Separator my={4} />
-            <FilterListsBooks />
+            <FilterBooksLists />
 
             <Float offset={[16, null, 20]} placement="bottom-end">
               <Circle

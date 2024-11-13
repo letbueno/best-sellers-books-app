@@ -1,11 +1,11 @@
 import React from "react";
 import { screen } from "@testing-library/react";
 import ListBooksDetails from ".";
-import { ListsBooksContext } from "../../contexts/listsBooksContext";
+import { BooksListsContext } from "../../contexts/booksListsContext";
 
 import { render } from "../../utils/testUtils";
 import { vi } from "vitest";
-import { createMockBooksLists } from "../../utils/factories/listBooksFactory";
+import { createMockBooksLists } from "../../utils/factories/booksListFactory";
 
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom");
@@ -19,13 +19,13 @@ vi.mock("react-router-dom", async () => {
 describe("ListBooksDetails Page", () => {
   it("renders list details and book cards", () => {
     render(
-      <ListsBooksContext.Provider
+      <BooksListsContext.Provider
         value={{
-          listsBooks: createMockBooksLists(),
+          booksLists: createMockBooksLists(),
         }}
       >
         <ListBooksDetails />
-      </ListsBooksContext.Provider>
+      </BooksListsContext.Provider>
     );
 
     expect(screen.getByText("Best Sellers 1")).toBeInTheDocument();

@@ -1,14 +1,14 @@
 import { AxiosResponse } from "axios";
 import { apiGet } from "../index";
-import { ListBooks } from "../../../types/ListBooks";
+import { BooksList } from "../../../types/BooksList";
 
-type ApiListBooks = {
+type ApiBooksLists = {
   results: {
-    lists: ListBooks[];
+    lists: BooksList[];
   };
 };
 const bestSellersBooksApi = {
-  getbestSellersBooks: (): Promise<AxiosResponse<ApiListBooks>> =>
+  getbestSellersBooks: (): Promise<AxiosResponse<ApiBooksLists>> =>
     apiGet("full-overview.json"),
 };
 

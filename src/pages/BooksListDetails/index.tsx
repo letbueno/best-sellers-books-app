@@ -3,39 +3,40 @@ import React, { useEffect, useState } from "react";
 import { Text, Box, useBreakpointValue } from "@chakra-ui/react";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { useListsBooksContext } from "../../contexts/listsBooksContext";
+import { useBooksListsContext } from "../../contexts/booksListsContext";
 import { BookCardHorizontal } from "../../components/BookCardHorizontal";
 import MainLayout from "../../components/MainLayout";
 import LoadingWrapper from "../Loading";
-import { ListBooks } from "../../types/ListBooks";
+
 import { BookCard } from "../../components/BookCard";
+import { BooksList } from "../../types/BooksList";
 
 type UserParams = {
   id: string;
 };
 
-function ListBooksDetails(): JSX.Element {
+function BooksListDetails(): JSX.Element {
   const { id } = useParams<UserParams>();
 
-  const [currentListBooks, setCurrentListBooks] = useState<ListBooks>();
-  const { listsBooks } = useListsBooksContext();
+  const [currentBooksList, setCurrentBooksList] = useState<BooksList>();
+  const { booksLists } = useBooksListsContext();
   const navigate = useNavigate();
 
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   useEffect(() => {
-    const listBooks = listsBooks?.find(
-      (list: any) => list.list_id === Number(id)
+    const booksList = booksLists?.find(
+      (list: BooksList) => list.list_id === Number(id),
     );
 
-    if (listBooks) {
-      setCurrentListBooks(listBooks);
+    if (booksList) {
+      setCurrentBooksList(booksList);
     } else {
       navigate("/*");
     }
-  }, [currentListBooks, navigate, id, listsBooks]);
+  }, [currentBooksList, navigate, id, booksLists]);
 
-  if (!currentListBooks) {
+  if (!currentBooksList) {
     return <LoadingWrapper />;
   }
 
@@ -45,9 +46,9 @@ function ListBooksDetails(): JSX.Element {
         <Text
           textStyle="2xl"
           fontWeight="bolder"
-          key={currentListBooks.list_name}
+          key={currentBooksList.list_name}
         >
-          {currentListBooks?.list_name}
+          {currentBooksList?.list_name}
         </Text>
         <Text textStyle="md" color="gray.600">
           A Top 5 ranked lists of books sold in the United States, sorted by
@@ -63,7 +64,7 @@ function ListBooksDetails(): JSX.Element {
         mt={8}
         mb={8}
       >
-        {currentListBooks?.books?.map((book: any) => (
+        {currentBooksList?.books?.map((book: any) => (
           <div key={book.primary_isbn10}>
             {isMobile ? (
               <BookCard
@@ -95,4 +96,4 @@ function ListBooksDetails(): JSX.Element {
   );
 }
 
-export default ListBooksDetails;
+export default BooksListDetails;

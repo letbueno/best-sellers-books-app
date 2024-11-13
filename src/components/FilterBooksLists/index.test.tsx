@@ -1,13 +1,12 @@
 import React from "react";
 import { screen } from "@testing-library/react";
-import FilterListsBooks from ".";
 
-import { ListsBooksContext } from "../../contexts/listsBooksContext";
-
+import { BooksListsContext } from "../../contexts/booksListsContext";
+import FilterBooksLists from ".";
 import { render } from "../../utils/testUtils";
-import { createMockBookList } from "../../utils/factories/listBooksFactory";
+import { createMockBookList } from "../../utils/factories/booksListFactory";
 
-describe("FilterListsBooks", () => {
+describe("FilterBooksLists", () => {
   const mockWeeklyBooks = [
     createMockBookList(1, "Combined Print and E-Book Fiction"),
     createMockBookList(2, "Hardcover Nonfiction"),
@@ -20,15 +19,15 @@ describe("FilterListsBooks", () => {
 
   it("renders weekly and monthly bestsellers lists", () => {
     render(
-      <ListsBooksContext.Provider
+      <BooksListsContext.Provider
         value={{
-          listsBooks: [],
-          weeklyListsBooks: mockWeeklyBooks,
-          monthlyListsBooks: mockMonthlyBooks,
+          booksLists: [],
+          weeklyBooksLists: mockWeeklyBooks,
+          monthlyBooksLists: mockMonthlyBooks,
         }}
       >
-        <FilterListsBooks />
-      </ListsBooksContext.Provider>
+        <FilterBooksLists />
+      </BooksListsContext.Provider>
     );
 
     expect(screen.getByText("Weekly Best Sellers Lists")).toBeInTheDocument();

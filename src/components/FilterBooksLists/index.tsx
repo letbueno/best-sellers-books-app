@@ -7,12 +7,12 @@ import {
   SimpleGrid,
   Link as TextLink,
 } from "@chakra-ui/react";
-import { useListsBooksContext } from "../../contexts/listsBooksContext";
-import { ListBooks } from "../../types/ListBooks";
+import { useBooksListsContext } from "../../contexts/booksListsContext";
+import { BooksList } from "../../types/BooksList";
 import { Link } from "react-router-dom";
 
-function FilterListsBooks(): JSX.Element {
-  const { weeklyListsBooks, monthlyListsBooks } = useListsBooksContext();
+function FilterBooksLists(): JSX.Element {
+  const { weeklyBooksLists, monthlyBooksLists } = useBooksListsContext();
   return (
     <Box
       flexDirection="column"
@@ -26,7 +26,7 @@ function FilterListsBooks(): JSX.Element {
           Weekly Best Sellers Lists
         </Text>
         <SimpleGrid columns={[1, null, 2, 3]}>
-          {weeklyListsBooks?.map((list: ListBooks) => (
+          {weeklyBooksLists?.map((list: BooksList) => (
             <Link to={`/list/${list.list_id}`} key={list.list_id}>
               <TextLink as="p" textStyle="sm" color="gray.600" mb={2}>
                 {list.list_name}
@@ -39,7 +39,7 @@ function FilterListsBooks(): JSX.Element {
           Monthly Best Sellers Lists
         </Text>
         <SimpleGrid columns={[1, null, 2, 3]}>
-          {monthlyListsBooks?.map((list: ListBooks) => (
+          {monthlyBooksLists?.map((list: BooksList) => (
             <Link to={`/list/${list.list_id}`} key={list.list_id}>
               <TextLink as="p" textStyle="sm" color="gray.600" mb={2}>
                 {list.list_name}
@@ -52,4 +52,4 @@ function FilterListsBooks(): JSX.Element {
   );
 }
 
-export default FilterListsBooks;
+export default FilterBooksLists;

@@ -3,7 +3,7 @@ import { screen, render } from "@testing-library/react";
 import App from "./App";
 
 import { expect, it, vi } from "vitest";
-import BooksProvider from "./contexts/listsBooksContext";
+import BooksProvider from "./contexts/booksListsContext";
 import { Provider } from "./components/ui/provider";
 
 vi.mock("react-router-dom", async () => {

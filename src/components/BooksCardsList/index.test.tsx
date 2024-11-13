@@ -1,23 +1,23 @@
 import "@testing-library/jest-dom";
 import { render } from "../../utils/testUtils";
-import { BookCardList } from ".";
-import { ListsBooksContext } from "../../contexts/listsBooksContext";
+import { BooksCardsList } from ".";
+import { BooksListsContext } from "../../contexts/booksListsContext";
 import { fireEvent, screen } from "@testing-library/react";
 import { expect } from "vitest";
-import { createMockBooksLists } from "../../utils/factories/listBooksFactory";
+import { createMockBooksLists } from "../../utils/factories/booksListFactory";
 
-describe("BookCardList", () => {
-  const mockedListsBooks = createMockBooksLists();
+describe("BooksCardsList", () => {
+  const mockedBooksLists = createMockBooksLists();
 
   it("renders the list of books and shows more books when button is clicked", () => {
     render(
-      <ListsBooksContext.Provider
+      <BooksListsContext.Provider
         value={{
-          listsBooks: mockedListsBooks,
+          booksLists: mockedBooksLists,
         }}
       >
-        <BookCardList />
-      </ListsBooksContext.Provider>
+        <BooksCardsList />
+      </BooksListsContext.Provider>
     );
     expect(screen.getByText("Best Sellers 1")).toBeInTheDocument();
     expect(screen.getByText("Book 1")).toBeInTheDocument();
@@ -27,13 +27,13 @@ describe("BookCardList", () => {
 
   it("shows more lists of books when the 'Show More' button is clicked", () => {
     render(
-      <ListsBooksContext.Provider
+      <BooksListsContext.Provider
         value={{
-          listsBooks: mockedListsBooks,
+          booksLists: mockedBooksLists,
         }}
       >
-        <BookCardList />
-      </ListsBooksContext.Provider>
+        <BooksCardsList />
+      </BooksListsContext.Provider>
     );
     const showMoreButton = screen.getByText("Show More");
     expect(showMoreButton).toBeInTheDocument();
@@ -46,12 +46,12 @@ describe("BookCardList", () => {
   });
 
   it('does not display the "Show More" button when all books are shown', () => {
-    const mockedListsBooks = createMockBooksLists(2);
+    const mockedBooksLists = createMockBooksLists(2);
 
     render(
-      <ListsBooksContext.Provider value={{ listsBooks: mockedListsBooks }}>
-        <BookCardList />
-      </ListsBooksContext.Provider>
+      <BooksListsContext.Provider value={{ booksLists: mockedBooksLists }}>
+        <BooksCardsList />
+      </BooksListsContext.Provider>
     );
 
     expect(screen.queryByText("Show More")).toBeNull();
