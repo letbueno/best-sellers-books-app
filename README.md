@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# 📖 Best Sellers Books App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Best Sellers Books App is a React and TypeScript-based application that utilizes the New York Times Best Sellers Books API to display and explore the top-selling books across various genres.
 
-## Available Scripts
+## 📝 Features
 
-In the project directory, you can run:
+- View All Bestseller Lists: Discover the current best-selling books across all genres, curated by the New York Times, with the top 5 titles highlighted and organized by genre.
+- Filter Bestseller Lists by Time Period: Customize your view by time updated, with options to filter by weekly or monthly top-seller lists, all organized by genre.
+- Bestseller List Details: Dive deeper into each genre-specific bestseller list, displaying books ranked in order from top to bottom.
+- Caching Mechanism: Book data is cached and refreshed weekly, ensuring fast access and synchronization with the latest NYT updates. This also optimizes API usage by reducing unnecessary requests, improving performance, and managing API limits.
 
-### `yarn start`
+## 🔧 Technology Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React & TypeScript: Frontend framework and language for building a reliable and efficient interface.
+- [Chakra UI](https://www.chakra-ui.com/): A modular and customizable component library for React that provides accessible and responsive design elements.
+- [Vitest](https://vitest.dev/): A testing framework ensuring the reliability and quality of the application.
+- Cache Management (Local Storage): Efficiently caches data to reduce API requests and improve performance.
+- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/): Tools for enforcing consistent coding style and best practices, helping to maintain high-quality, readable code.
+- [New York Times Books API](https://developer.nytimes.com/docs/books-product/1/overview): Real-time API that provides information about book reviews and The New York Times Best Sellers lists.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📊 Project Structure
 
-### `yarn test`
+- src/router: Contains the routing logic of the application, managing navigation between pages.
+- src/components: Stores reusable UI components, all built with Chakra UI.
+- src/utils: Includes utility functions, test helpers, and additional features such as the "scroll to top" button for smoother navigation.
+- src/services: Handles API interactions, centralizing functions responsible for making requests and processing external data.
+- src/pages: Contains the main page components, such as Home, BookListDetails, and NotFound.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🖥️ Local development
 
-### `yarn build`
+#### Clone the repo:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```shell
+git clone git@github.com:letbueno/best-sellers-books-app.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Copy the .env.example to a .env file
+This project uses the New York Times Books API to fetch real-time best sellers books data. To access the API, you need to obtain an API key from the [New York Times Books API](https://developer.nytimes.com/docs/books-product/1/overview). Once you have your API key, copy the .env.example file to .env to configure your local environment:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+cp .env.example .env
+```
 
-### `yarn eject`
+In the **.env** file, replace YOUR_API_KEY with your actual API key:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+REACT_APP_API_KEY=YOUR_API_KEY
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Install the application:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```shell
+yarn install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Start the app:
 
-## Learn More
+```shell
+yarn start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧪 Test
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For running the test suite
+
+```shell
+yarn test
+```
+
+## 🎨 Code linting
+
+To check the code quality, use the following command:
+
+```shell
+yarn lint
+```
+
