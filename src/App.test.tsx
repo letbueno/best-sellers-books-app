@@ -19,8 +19,8 @@ it("renders learn react link", () => {
       <BooksProvider>
         <App />
       </BooksProvider>
-    </Provider>
+    </Provider>,
   );
-  const linkElement = screen.getByText(/The New York Times/i);
-  expect(linkElement.textContent).toBe("The New York Times");
+  const linkElement = screen.getByText(/best sellers books/i);
+  expect(linkElement.textContent).toBe("Best Sellers Books");
 });

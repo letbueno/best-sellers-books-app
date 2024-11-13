@@ -43,7 +43,7 @@ export function BooksCardsList(): JSX.Element {
   };
 
   return (
-    <Box mt={8} display="flex" flexDirection="column">
+    <Box display="flex" flexDirection="column">
       {displayedBooksLists?.map((list: BooksList) => (
         <Box key={list.list_id} mb={8}>
           <Link to={`/list/${list.list_id}`}>

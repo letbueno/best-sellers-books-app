@@ -8,7 +8,7 @@ const Header: React.FC = () => {
       <Flex alignItems="center" justifyContent="center">
         <Link to="/">
           <Heading as="h1" size="lg" color="white">
-            The New York Times
+            Best Sellers Books
           </Heading>
         </Link>
       </Flex>

@@ -8,9 +8,9 @@ describe("Header", () => {
     render(<Header />);
 
     const header = screen.getByRole("heading", {
-      name: /the new york times/i,
+      name: /best sellers books/i,
     });
 
-    expect(header.textContent).toBe("The New York Times");
+    expect(header.textContent).toBe("Best Sellers Books");
   });
 });
