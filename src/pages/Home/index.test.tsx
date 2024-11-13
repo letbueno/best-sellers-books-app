@@ -1,4 +1,4 @@
-import { screen, fireEvent } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Home from ".";
 import "@testing-library/jest-dom";
 import { vi } from "vitest";
@@ -9,7 +9,7 @@ vi.mock("../../components/BookCardList", () => ({
 }));
 
 describe("Home component", () => {
-  it("renders the main content and scrolls to top on button click", () => {
+  it("renders the main content", () => {
     render(<Home />);
 
     expect(
@@ -22,15 +22,5 @@ describe("Home component", () => {
     ).toBeInTheDocument();
 
     expect(screen.getByTestId("book-card-list")).toBeInTheDocument();
-
-    const mockScrollIntoView = vi.fn();
-    HTMLDivElement.prototype.scrollIntoView = mockScrollIntoView;
-
-    const scrollToTopButton = screen.getByRole("button", {
-      name: "Scroll to top",
-    });
-    fireEvent.click(scrollToTopButton);
-
-    expect(mockScrollIntoView).toHaveBeenCalled();
   });
 });

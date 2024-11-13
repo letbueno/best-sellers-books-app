@@ -1,15 +1,26 @@
 import React from "react";
-import { screen } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 import App from "./App";
-import { render } from "./utils/testUtils";
-import { expect, it, vi } from "vitest";
 
+import { expect, it, vi } from "vitest";
+import BooksProvider from "./contexts/listsBooksContext";
+import { Provider } from "./components/ui/provider";
+
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
+    useNavigate: () => vi.fn(),
+  };
+});
 it("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(
-    /A Top 5 ranked lists of books sold in the United States, sorted by format and genre./i
+  render(
+    <Provider defaultTheme="light">
+      <BooksProvider>
+        <App />
+      </BooksProvider>
+    </Provider>
   );
-  expect(linkElement.textContent).toBe(
-    "A Top 5 ranked lists of books sold in the United States, sorted by format and genre."
-  );
+  const linkElement = screen.getByText(/The New York Times/i);
+  expect(linkElement.textContent).toBe("The New York Times");
 });

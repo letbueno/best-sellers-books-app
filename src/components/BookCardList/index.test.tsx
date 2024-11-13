@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
 import { render } from "../../utils/testUtils";
 import { BookCardList } from ".";
-import { BooksContext } from "../../contexts/booksContext";
+import { ListsBooksContext } from "../../contexts/listsBooksContext";
 import { fireEvent, screen } from "@testing-library/react";
-import { vi, expect } from "vitest";
+import { expect } from "vitest";
 import { createMockBooksLists } from "../../utils/factories/listBooksFactory";
 
 describe("BookCardList", () => {
@@ -11,14 +11,13 @@ describe("BookCardList", () => {
 
   it("renders the list of books and shows more books when button is clicked", () => {
     render(
-      <BooksContext.Provider
+      <ListsBooksContext.Provider
         value={{
-          books: mockedListsBooks,
-          setBooks: vi.fn(),
+          listsBooks: mockedListsBooks,
         }}
       >
         <BookCardList />
-      </BooksContext.Provider>
+      </ListsBooksContext.Provider>
     );
     expect(screen.getByText("Best Sellers 1")).toBeInTheDocument();
     expect(screen.getByText("Book 1")).toBeInTheDocument();
@@ -28,14 +27,13 @@ describe("BookCardList", () => {
 
   it("shows more lists of books when the 'Show More' button is clicked", () => {
     render(
-      <BooksContext.Provider
+      <ListsBooksContext.Provider
         value={{
-          books: mockedListsBooks,
-          setBooks: vi.fn(),
+          listsBooks: mockedListsBooks,
         }}
       >
         <BookCardList />
-      </BooksContext.Provider>
+      </ListsBooksContext.Provider>
     );
     const showMoreButton = screen.getByText("Show More");
     expect(showMoreButton).toBeInTheDocument();
@@ -51,11 +49,9 @@ describe("BookCardList", () => {
     const mockedListsBooks = createMockBooksLists(2);
 
     render(
-      <BooksContext.Provider
-        value={{ books: mockedListsBooks, setBooks: vi.fn() }}
-      >
+      <ListsBooksContext.Provider value={{ listsBooks: mockedListsBooks }}>
         <BookCardList />
-      </BooksContext.Provider>
+      </ListsBooksContext.Provider>
     );
 
     expect(screen.queryByText("Show More")).toBeNull();

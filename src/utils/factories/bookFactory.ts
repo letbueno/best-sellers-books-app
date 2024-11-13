@@ -1,4 +1,4 @@
-import { Book } from "@/types/Book";
+import { Book } from "../../types/Book";
 
 export const createMockBook = (overrides?: Partial<Book>): Book => ({
   primary_isbn10: "1111111111",

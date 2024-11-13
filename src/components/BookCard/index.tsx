@@ -28,7 +28,7 @@ export function BookCard({
   alt,
 }: Props): JSX.Element {
   return (
-    <Card.Root minWidth="200px" minHeight="500px" variant="outline">
+    <Card.Root minWidth="200px" height="100%" variant="outline">
       <Float offset="6" placement="top-start">
         <Badge
           size="md"
