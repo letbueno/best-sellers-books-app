@@ -10,7 +10,7 @@ describe("NotFound Page", () => {
     expect(screen.getByText("Not Found!")).toBeInTheDocument();
 
     expect(
-      screen.getByText("Sorry, the page you are looking for does not exist.")
+      screen.getByText("Sorry, the page you are looking for does not exist."),
     ).toBeInTheDocument();
   });
 });

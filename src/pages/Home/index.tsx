@@ -1,7 +1,7 @@
 import React from "react";
 
 import { BooksCardsList } from "../../components/BooksCardsList";
-import { Text, Box } from "@chakra-ui/react";
+import { Text, Box, Separator } from "@chakra-ui/react";
 import MainLayout from "../../components/MainLayout";
 
 function Home(): JSX.Element {
@@ -9,13 +9,14 @@ function Home(): JSX.Element {
     <MainLayout>
       <Box alignSelf="flex-start">
         <Text textStyle="2xl" fontWeight="bolder">
-          The New York Times Best Sellers
+          Best Sellers Books By The New York Times
         </Text>
         <Text textStyle="md" color="gray.600">
-          A Top 5 ranked lists of books sold in the United States, sorted by
-          format and genre.
+          Ranked lists of books sold in the United States, sorted by format and
+          genre.
         </Text>
       </Box>
+      <Separator my={4} />
       <BooksCardsList />
     </MainLayout>
   );

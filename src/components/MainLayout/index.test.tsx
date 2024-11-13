@@ -13,7 +13,7 @@ describe("MainLayout", () => {
     render(
       <MainLayout>
         <div>Test Content</div>
-      </MainLayout>
+      </MainLayout>,
     );
 
     expect(screen.getByText("Test Content")).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe("MainLayout", () => {
     render(
       <MainLayout>
         <div>Test Content</div>
-      </MainLayout>
+      </MainLayout>,
     );
 
     const scrollButton = screen.getByRole("button", { name: /scroll to top/i });

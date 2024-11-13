@@ -10,7 +10,7 @@ type BookList = {
 export const createMockBookList = (
   id: number,
   name: string,
-  bookCount = 6
+  bookCount = 6,
 ): BookList => ({
   list_id: id,
   list_name: name,
@@ -21,14 +21,14 @@ export const createMockBookList = (
       description: `Description ${(id - 1) * bookCount + index + 1}`,
       author: `Author ${(id - 1) * bookCount + index + 1}`,
       rank: index + 1,
-    })
+    }),
   ),
 });
 
 export const createMockBooksLists = (
   listCount = 4,
-  booksPerList = 6
+  booksPerList = 6,
 ): BookList[] =>
   Array.from({ length: listCount }, (_, index) =>
-    createMockBookList(index + 1, `Best Sellers ${index + 1}`, booksPerList)
+    createMockBookList(index + 1, `Best Sellers ${index + 1}`, booksPerList),
   );

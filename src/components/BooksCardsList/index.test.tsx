@@ -17,7 +17,7 @@ describe("BooksCardsList", () => {
         }}
       >
         <BooksCardsList />
-      </BooksListsContext.Provider>
+      </BooksListsContext.Provider>,
     );
     expect(screen.getByText("Best Sellers 1")).toBeInTheDocument();
     expect(screen.getByText("Book 1")).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe("BooksCardsList", () => {
         }}
       >
         <BooksCardsList />
-      </BooksListsContext.Provider>
+      </BooksListsContext.Provider>,
     );
     const showMoreButton = screen.getByText("Show More");
     expect(showMoreButton).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe("BooksCardsList", () => {
     render(
       <BooksListsContext.Provider value={{ booksLists: mockedBooksLists }}>
         <BooksCardsList />
-      </BooksListsContext.Provider>
+      </BooksListsContext.Provider>,
     );
 
     expect(screen.queryByText("Show More")).toBeNull();

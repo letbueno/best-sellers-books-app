@@ -10,6 +10,7 @@ import LoadingWrapper from "../Loading";
 
 import { BookCard } from "../../components/BookCard";
 import { BooksList } from "../../types/BooksList";
+import { Book } from "../../types/Book";
 
 type UserParams = {
   id: string;
@@ -60,7 +61,7 @@ function BooksListDetails(): JSX.Element {
         mt={8}
         mb={8}
       >
-        {currentBooksList?.books?.map((book: any) => (
+        {currentBooksList?.books?.map((book: Book) => (
           <div key={book.primary_isbn10}>
             {isMobile ? (
               <BookCard

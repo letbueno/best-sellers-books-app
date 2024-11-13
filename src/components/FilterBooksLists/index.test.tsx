@@ -27,7 +27,7 @@ describe("FilterBooksLists", () => {
         }}
       >
         <FilterBooksLists />
-      </BooksListsContext.Provider>
+      </BooksListsContext.Provider>,
     );
 
     expect(screen.getByText("Weekly Best Sellers Lists")).toBeInTheDocument();
