@@ -2,7 +2,7 @@ import React from "react";
 
 import BooksProvider from "./contexts/booksListsContext";
 
-import Header from "./components/Header";
+import Header from "./components/moleculars/Header";
 import { Provider } from "./components/ui/provider";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes";

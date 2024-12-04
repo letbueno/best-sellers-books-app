@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, screen } from "@testing-library/react";
-import { render } from "../../utils/testUtils";
+import { render } from "../../../utils/testUtils";
 import MainLayout from ".";
 import { vi } from "vitest";
 

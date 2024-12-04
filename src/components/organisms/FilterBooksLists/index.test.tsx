@@ -1,10 +1,10 @@
 import React from "react";
 import { screen } from "@testing-library/react";
 
-import { BooksListsContext } from "../../contexts/booksListsContext";
+import { BooksListsContext } from "../../../contexts/booksListsContext";
 import FilterBooksLists from ".";
-import { render } from "../../utils/testUtils";
-import { createMockBookList } from "../../utils/factories/booksListFactory";
+import { render } from "../../../utils/testUtils";
+import { createMockBookList } from "../../../utils/factories/booksListFactory";
 
 describe("FilterBooksLists", () => {
   const mockWeeklyBooks = [

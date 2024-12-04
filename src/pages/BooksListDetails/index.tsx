@@ -4,11 +4,11 @@ import { Text, Box, useBreakpointValue, Separator } from "@chakra-ui/react";
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useBooksListsContext } from "../../contexts/booksListsContext";
-import { BookCardHorizontal } from "../../components/BookCardHorizontal";
-import MainLayout from "../../components/MainLayout";
+import { BookCardHorizontal } from "../../components/moleculars/BookCardHorizontal";
+import MainLayout from "../../components/templates/MainLayout";
 import LoadingWrapper from "../Loading";
 
-import { BookCard } from "../../components/BookCard";
+import { BookCard } from "../../components/moleculars/BookCard";
 import { BooksList } from "../../types/BooksList";
 import { Book } from "../../types/Book";
 

@@ -7,8 +7,8 @@ import {
   SimpleGrid,
   Link as TextLink,
 } from "@chakra-ui/react";
-import { useBooksListsContext } from "../../contexts/booksListsContext";
-import { BooksList } from "../../types/BooksList";
+import { useBooksListsContext } from "../../../contexts/booksListsContext";
+import { BooksList } from "../../../types/BooksList";
 import { Link } from "react-router-dom";
 
 function FilterBooksLists(): JSX.Element {

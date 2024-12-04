@@ -6,15 +6,15 @@ import {
   Link as TextLink,
 } from "@chakra-ui/react";
 
-import { BookCard } from "../BookCard";
-import { useBooksListsContext } from "../../contexts/booksListsContext";
+import { BookCard } from "../../moleculars/BookCard";
+import { useBooksListsContext } from "../../../contexts/booksListsContext";
 import { useEffect, useState } from "react";
-import Carousel from "../Carousel";
+import Carousel from "../../moleculars/Carousel";
 
 import { RiArrowRightLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { Book } from "../../types/Book";
-import { BooksList } from "../../types/BooksList";
+import { Book } from "../../../types/Book";
+import { BooksList } from "../../../types/BooksList";
 
 export function BooksCardsList(): JSX.Element {
   const { booksLists } = useBooksListsContext();

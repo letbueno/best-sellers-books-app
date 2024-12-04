@@ -1,8 +1,8 @@
 import React from "react";
 
-import { BooksCardsList } from "../../components/BooksCardsList";
+import { BooksCardsList } from "../../components/organisms/BooksCardsList";
 import { Text, Box, Separator } from "@chakra-ui/react";
-import MainLayout from "../../components/MainLayout";
+import MainLayout from "../../components/templates/MainLayout";
 
 function Home(): JSX.Element {
   return (

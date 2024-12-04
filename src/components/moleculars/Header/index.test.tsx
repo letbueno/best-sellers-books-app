@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import Header from ".";
-import { render } from "../../utils/testUtils";
+import { render } from "../../../utils/testUtils";
 import { describe, it, expect } from "vitest";
 
 describe("Header", () => {

@@ -1,5 +1,5 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { render } from "../../utils/testUtils";
+import { render } from "../../../utils/testUtils";
 import { expect, describe, it, beforeEach } from "vitest";
 import Carousel from ".";
 

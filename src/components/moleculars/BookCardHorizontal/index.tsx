@@ -1,5 +1,5 @@
 import { Badge, Box, Card, Image, Link, Text } from "@chakra-ui/react";
-import { Button } from "../ui/button";
+import { Button } from "../../atomics/button";
 
 type Props = {
   title: string;

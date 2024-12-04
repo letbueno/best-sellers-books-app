@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { BookCardHorizontal } from ".";
-import { render } from "../../utils/testUtils";
+import { BookCard } from ".";
+import { render } from "../../../utils/testUtils";
 import { screen } from "@testing-library/react";
 
-describe("BookCardHorizontal Component", () => {
+describe("BookCard Component", () => {
   const props = {
     title: "Test Book",
     description: "A brief description of the book.",
@@ -14,7 +14,7 @@ describe("BookCardHorizontal Component", () => {
     alt: "Cover of Test Book",
   };
 
-  const { container } = render(<BookCardHorizontal {...props} />);
+  const { container } = render(<BookCard {...props} />);
 
   it("renders all content with correct props", () => {
     expect(container).toBeTruthy();

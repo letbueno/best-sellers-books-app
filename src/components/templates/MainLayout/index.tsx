@@ -1,9 +1,9 @@
 import React from "react";
 import { Circle, Container, Float, Separator } from "@chakra-ui/react";
-import FilterBooksLists from "../FilterBooksLists";
+import FilterBooksLists from "../../organisms/FilterBooksLists";
 import { RiArrowUpLine } from "react-icons/ri";
-import { useBooksListsContext } from "../../contexts/booksListsContext";
-import LoadingWrapper from "../../pages/Loading";
+import { useBooksListsContext } from "../../../contexts/booksListsContext";
+import LoadingWrapper from "../../../pages/Loading";
 
 function MainLayout({ children }: { children: React.ReactNode }): JSX.Element {
   const scrollToTop = () => {

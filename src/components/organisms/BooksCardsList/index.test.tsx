@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom";
-import { render } from "../../utils/testUtils";
+import { render } from "../../../utils/testUtils";
 import { BooksCardsList } from ".";
-import { BooksListsContext } from "../../contexts/booksListsContext";
+import { BooksListsContext } from "../../../contexts/booksListsContext";
 import { fireEvent, screen } from "@testing-library/react";
 import { expect } from "vitest";
-import { createMockBooksLists } from "../../utils/factories/booksListFactory";
+import { createMockBooksLists } from "../../../utils/factories/booksListFactory";
 
 describe("BooksCardsList", () => {
   const mockedBooksLists = createMockBooksLists();
