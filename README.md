@@ -2,6 +2,12 @@
 
 The Best Sellers Books App is a React and TypeScript-based application that utilizes the New York Times Best Sellers Books API to display and explore the top-selling books across various genres.
 
+
+https://github.com/user-attachments/assets/2c1e7325-fe59-4fb4-bc04-a9b113ec76d0
+
+
+
+
 ## 📝 Features
 
 - View All Bestseller Lists: Discover the current best-selling books across all genres, curated by the New York Times, with the top 5 titles highlighted and organized by genre.
